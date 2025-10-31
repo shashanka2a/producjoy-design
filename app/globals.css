@@ -4,8 +4,8 @@
   --background: #000000; /* pitch black */
   --foreground: #ffffff;
   /* Typography scale used by headings */
-  --text-hero: 3.25rem;
-  --text-section: 2.25rem;
+  --text-hero: 2.75rem;
+  --text-section: 2rem;
 }
 
 @theme inline {
@@ -48,35 +48,35 @@ body {
 /* Responsive typography for larger screens */
 @media (min-width: 640px) {
   :root {
-    --text-hero: 4.25rem;
-    --text-section: 2.75rem;
+    --text-hero: 3.5rem;
+    --text-section: 2.25rem;
   }
 }
 
 @media (min-width: 768px) {
   :root {
-    --text-hero: 5.75rem;
-    --text-section: 3.25rem;
+    --text-hero: 4.5rem;
+    --text-section: 2.75rem;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --text-hero: 6.75rem;
-    --text-section: 3.75rem;
+    --text-hero: 5.5rem;
+    --text-section: 3.25rem;
   }
 }
 
 @media (min-width: 1280px) {
   :root {
-    --text-hero: 8rem;
-    --text-section: 4.25rem;
+    --text-hero: 6.5rem;
+    --text-section: 3.5rem;
   }
 }
 
 @media (min-width: 1536px) {
   :root {
-    --text-hero: 9rem;
-    --text-section: 4.5rem;
+    --text-hero: 7rem;
+    --text-section: 3.75rem;
   }
 }
