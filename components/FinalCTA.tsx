@@ -20,7 +20,7 @@ export function FinalCTA() {
           transition={{ duration: 0.8 }}
         >
           <motion.div
-            className="inline-block mb-6 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm"
+            className="inline-block mb-6 px-4 py-2 rounded-full border border-white/10 bg-white/5"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}

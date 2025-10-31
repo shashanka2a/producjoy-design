@@ -102,7 +102,7 @@ export function PricingSection() {
             Choose your <span className="bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] bg-clip-text text-transparent">design sprint</span>
           </h2>
           <p className="text-white/60 max-w-2xl mx-auto leading-relaxed" style={{ fontSize: '1.125rem' }}>
-            Flexible design engagements that match your timeline and budget—no hidden fees, no surprises.
+            Flexible design engagements that match your timeline and budget • no hidden fees, no surprises.
           </p>
         </motion.div>
         

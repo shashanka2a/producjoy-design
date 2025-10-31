@@ -2,6 +2,37 @@
 
 import { motion } from "motion/react";
 import { ArrowRight, Zap, Package, Clock } from "lucide-react";
+import { useState, useEffect } from "react";
+
+// Typing animation component
+function TypingText({ text, delay = 0, className = "" }: { text: string; delay?: number; className?: string }) {
+  const [displayedText, setDisplayedText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (currentIndex < text.length) {
+        setDisplayedText((prev) => prev + text[currentIndex]);
+        setCurrentIndex((prev) => prev + 1);
+      }
+    }, delay + (currentIndex * 50)); // 50ms per character
+
+    return () => clearTimeout(timeout);
+  }, [currentIndex, text, delay]);
+
+  return (
+    <span className={className}>
+      {displayedText}
+      {currentIndex < text.length && (
+        <motion.span
+          animate={{ opacity: [1, 0] }}
+          transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+          className="inline-block w-0.5 h-[0.9em] bg-current ml-1 align-middle"
+        />
+      )}
+    </span>
+  );
+}
 
 // Background ornaments removed for a cleaner hero
 
@@ -26,22 +57,25 @@ export function HeroSection() {
           </motion.div>
 
           <h1 className="mb-8 max-w-5xl mx-auto">
-            <motion.span
+            <motion.div
               className="block text-white"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Design world-class
-            </motion.span>
-            <motion.span
-              className="block bg-gradient-to-r from-[#FF2EF5] via-[#C945FF] to-[#8A6BFF] bg-clip-text text-transparent"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              <TypingText text="Design world-class" delay={600} />
+            </motion.div>
+            <div
+              className="block"
+              style={{
+                background: "linear-gradient(to right, #FF2EF5, #C945FF, #8A6BFF)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
             >
-              experiences, insanely fast
-            </motion.span>
+              <TypingText text="experiences, insanely fast" delay={2400} />
+            </div>
           </h1>
         </motion.div>
         
@@ -102,7 +136,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
         >
           {[
-            { icon: Clock, value: "2–10 days", label: "Delivery time", color: "#FF2EF5" },
+            { icon: Clock, value: "2 to 10 days", label: "Delivery time", color: "#FF2EF5" },
             { icon: Package, value: "50+ Designs", label: "shipped", color: "#8A6BFF" },
             { icon: Zap, value: "24/7", label: "Collaboration", color: "#FF2EF5" },
           ].map((stat, index) => (

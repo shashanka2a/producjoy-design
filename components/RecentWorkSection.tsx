@@ -9,7 +9,7 @@ import Image from "next/image";
 const projects = [
   {
     title: "Adverzeo",
-    description: "The Art Of Loading Excellence — premium marketing platform design.",
+    description: "The Art Of Loading Excellence • premium marketing platform design.",
     tags: ["Brand Identity", "Web Design", "UI/UX"],
     gradient: "from-[#FF2EF5] to-[#8A6BFF]",
     year: "2024",
@@ -83,15 +83,15 @@ export function RecentWorkSection() {
               onMouseLeave={() => setHoveredIndex(null)}
               whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
             >
-              {/* Gradient background */}
+              {/* Gradient background - reduced opacity */}
               <motion.div
-                className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10 group-hover:opacity-20 transition-opacity duration-500`}
+                className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-5 group-hover:opacity-12 transition-opacity duration-500`}
               />
 
-              {/* Border glow */}
+              {/* Border glow - reduced opacity */}
               <motion.div
                 className={`absolute -inset-[1px] bg-gradient-to-br ${project.gradient} rounded-3xl opacity-0 blur-xl -z-10`}
-                animate={hoveredIndex === index ? { opacity: 0.5 } : { opacity: 0 }}
+                animate={hoveredIndex === index ? { opacity: 0.15 } : { opacity: 0 }}
                 transition={{ duration: 0.5 }}
               />
               

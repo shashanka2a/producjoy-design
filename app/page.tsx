@@ -8,7 +8,7 @@ import { FinalCTA } from "../components/FinalCTA";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0D0D0D] text-white">
+    <div className="min-h-screen bg-black text-white">
       <HeroSection />
       <ServicesSection />
       <ProcessSection />

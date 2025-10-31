@@ -77,7 +77,7 @@ export function ServicesSection() {
             Everything you need to design remarkable products
           </h2>
           <p className="text-white/60 max-w-2xl leading-relaxed" style={{ fontSize: '1.125rem' }}>
-            Complete design solutions that scale with your startup's ambitions—from brand foundations to product launch.
+            Complete design solutions that scale with your startup's ambitions • from brand foundations to product launch.
           </p>
         </motion.div>
         
@@ -93,15 +93,15 @@ export function ServicesSection() {
               transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
               whileHover={{ y: -6, transition: { duration: 0.3, ease: "easeOut" } }}
             >
-              {/* Animated gradient background - reduced opacity */}
+              {/* Animated gradient background - minimal opacity */}
               <motion.div
-                className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}
+                className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
                 initial={false}
               />
               
-              {/* Border glow on hover - reduced opacity */}
+              {/* Border glow on hover - minimal opacity */}
               <motion.div
-                className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 bg-gradient-to-r ${service.borderGradient} blur-xl -z-10`}
+                className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-15 transition-opacity duration-500 bg-gradient-to-r ${service.borderGradient} blur-xl -z-10`}
                 initial={false}
               />
               

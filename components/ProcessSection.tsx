@@ -58,7 +58,7 @@ export function ProcessSection() {
             From <span className="bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] bg-clip-text text-transparent">idea to execution</span> in days
           </h2>
           <p className="text-white/60 max-w-2xl leading-relaxed" style={{ fontSize: '1.125rem' }}>
-            A streamlined workflow designed for speed without compromising quality—because great design shouldn't take months.
+            A streamlined workflow designed for speed without compromising quality • because great design shouldn't take months.
           </p>
         </motion.div>
         
