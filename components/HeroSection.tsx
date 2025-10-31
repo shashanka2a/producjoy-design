@@ -15,7 +15,7 @@ function TypingText({ text, delay = 0, className = "" }: { text: string; delay?:
         setDisplayedText((prev) => prev + text[currentIndex]);
         setCurrentIndex((prev) => prev + 1);
       }
-    }, delay + (currentIndex * 50)); // 50ms per character
+    }, delay + (currentIndex * 25)); // 25ms per character for faster typing
 
     return () => clearTimeout(timeout);
   }, [currentIndex, text, delay]);
@@ -63,7 +63,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <TypingText text="Design world-class" delay={600} />
+              <TypingText text="Design world-class" delay={300} />
             </motion.div>
             <div
               className="block"
@@ -74,7 +74,7 @@ export function HeroSection() {
                 backgroundClip: "text",
               }}
             >
-              <TypingText text="experiences, insanely fast" delay={2400} />
+              <TypingText text="experiences, insanely fast" delay={750} />
             </div>
           </h1>
         </motion.div>
