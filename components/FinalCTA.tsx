@@ -8,7 +8,7 @@ export function FinalCTA() {
   const [email, setEmail] = useState("");
 
   return (
-    <section className="relative px-6 py-32 overflow-hidden">
+    <section className="relative px-6 py-24 overflow-hidden">
       {/* Animated gradient background */}
       <div className="absolute inset-0">
         <motion.div

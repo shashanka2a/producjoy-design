@@ -55,15 +55,15 @@ export function ServicesSection() {
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
   
   return (
-    <section ref={ref} className="px-6 py-32 relative">
+    <section ref={ref} className="px-6 py-24 relative">
       {/* Decorative gradients removed for a cleaner, pitch-black aesthetic */}
 
       <div className="max-w-7xl mx-auto">
         <motion.div
-          className="mb-20"
-          initial={{ opacity: 0, y: 30 }}
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <motion.div
             className="inline-block mb-4 px-3 py-1 rounded-full border border-[#FF2EF5]/20 bg-[#FF2EF5]/5"
@@ -81,15 +81,17 @@ export function ServicesSection() {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              className="group relative p-8 rounded-3xl bg-gradient-to-br from-white/[0.07] to-white/[0.02] border border-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden cursor-pointer"
-              initial={{ opacity: 0, y: 30 }}
+              className={`group relative p-8 rounded-3xl bg-gradient-to-br from-white/[0.07] to-white/[0.02] border border-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden cursor-pointer ${
+                index === 0 ? "md:col-span-2 lg:col-span-1" : ""
+              }`}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
+              whileHover={{ y: -6, transition: { duration: 0.3, ease: "easeOut" } }}
             >
               {/* Animated gradient background */}
               <motion.div
@@ -117,12 +119,20 @@ export function ServicesSection() {
                   </span>
                 </div>
                 
-                <h3 className="mb-3 text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/80 group-hover:bg-clip-text transition-all duration-300">
+                <motion.h3 
+                  className="mb-3 text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/80 group-hover:bg-clip-text transition-all duration-300"
+                  whileHover={{ x: 2 }}
+                  transition={{ duration: 0.2 }}
+                >
                   {service.title}
-                </h3>
-                <p className="text-white/60 group-hover:text-white/80 transition-colors duration-300 leading-relaxed">
+                </motion.h3>
+                <motion.p 
+                  className="text-white/60 group-hover:text-white/80 transition-colors duration-300 leading-relaxed"
+                  whileHover={{ x: 1 }}
+                  transition={{ duration: 0.2 }}
+                >
                   {service.description}
-                </p>
+                </motion.p>
 
                 {/* Hover arrow */}
                 <motion.div

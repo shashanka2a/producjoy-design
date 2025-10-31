@@ -35,15 +35,15 @@ export function RecentWorkSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   
   return (
-    <section id="work" ref={ref} className="px-6 py-32 relative overflow-hidden">
+    <section id="work" ref={ref} className="px-6 py-24 relative overflow-hidden">
       {/* Background gradients removed for minimal look */}
 
       <div className="max-w-7xl mx-auto relative">
         <motion.div
-          className="mb-20"
-          initial={{ opacity: 0, y: 30 }}
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <motion.div
             className="inline-block mb-4 px-3 py-1 rounded-full border border-[#FF2EF5]/20 bg-[#FF2EF5]/5"
@@ -66,12 +66,12 @@ export function RecentWorkSection() {
             <motion.div
               key={project.title}
               className="group relative rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              whileHover={{ y: -12 }}
+              whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
             >
               {/* Gradient background */}
               <motion.div
@@ -134,10 +134,10 @@ export function RecentWorkSection() {
                     <motion.span
                       key={tag}
                       className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 text-sm group-hover:border-white/20 group-hover:text-white/80 transition-all duration-300"
-                      initial={{ opacity: 0, scale: 0.8 }}
+                      initial={{ opacity: 0, scale: 0.9 }}
                       animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ duration: 0.4, delay: index * 0.15 + tagIndex * 0.05 }}
-                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 + tagIndex * 0.04, ease: "easeOut" }}
+                      whileHover={{ scale: 1.08, y: -2 }}
                     >
                       {tag}
                     </motion.span>

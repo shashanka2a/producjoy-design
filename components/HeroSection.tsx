@@ -7,7 +7,7 @@ import { ArrowRight, Zap, Package, Clock } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 pt-24 pb-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center px-6 pt-24 pb-32 overflow-hidden">
       {/* Minimal background, no gradients for a pitch-black look */}
       
       <div className="relative max-w-6xl mx-auto text-center">
@@ -18,9 +18,9 @@ export function HeroSection() {
         >
           <motion.div
             className="inline-block mb-6 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm"
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
           >
             <span className="text-sm text-white/60">✨ Premium Design Studio</span>
           </motion.div>
@@ -95,7 +95,7 @@ export function HeroSection() {
           className="flex flex-col sm:flex-row items-center justify-center gap-12 flex-wrap"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
+          transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
         >
           {[
             { icon: Clock, value: "2–10 days", label: "Delivery time", color: "#FF2EF5" },
@@ -105,10 +105,10 @@ export function HeroSection() {
             <motion.div
               key={stat.label}
               className="group flex items-center gap-4 cursor-default"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-              whileHover={{ y: -4 }}
+              transition={{ duration: 0.4, delay: 0.7 + index * 0.08, ease: "easeOut" }}
+              whileHover={{ y: -3, transition: { duration: 0.2, ease: "easeOut" } }}
             >
               <motion.div
                 className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-white/20 transition-all duration-300"

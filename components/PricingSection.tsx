@@ -68,7 +68,7 @@ export function PricingSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   
   return (
-    <section id="pricing" ref={ref} className="px-6 py-32 relative overflow-hidden">
+    <section id="pricing" ref={ref} className="px-6 py-24 relative overflow-hidden">
       {/* Animated background gradient */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-[#FF2EF5]/10 to-[#8A6BFF]/10 rounded-full blur-3xl pointer-events-none"
@@ -85,10 +85,10 @@ export function PricingSection() {
 
       <div className="max-w-7xl mx-auto relative">
         <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <motion.div
             className="inline-block mb-4 px-3 py-1 rounded-full border border-[#8A6BFF]/20 bg-[#8A6BFF]/5"
@@ -115,12 +115,12 @@ export function PricingSection() {
                   ? "bg-gradient-to-b from-white/[0.12] to-white/[0.04] border-2 border-[#FF2EF5]/50 md:-translate-y-2"
                   : "bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-white/10 hover:border-white/20"
               }`}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: plan.popular ? -8 : 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              whileHover={{ y: plan.popular ? -12 : -8, transition: { duration: 0.3 } }}
+              whileHover={{ y: plan.popular ? -10 : -6, transition: { duration: 0.3, ease: "easeOut" } }}
             >
               {plan.popular && (
                 <motion.div

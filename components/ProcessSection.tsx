@@ -38,13 +38,13 @@ export function ProcessSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   
   return (
-    <section id="process" ref={ref} className="px-6 py-32 relative">
+    <section id="process" ref={ref} className="px-6 py-24 relative">
       <div className="max-w-6xl mx-auto">
         <motion.div
-          className="mb-20"
-          initial={{ opacity: 0, y: 30 }}
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <motion.div
             className="inline-block mb-4 px-3 py-1 rounded-full border border-[#8A6BFF]/20 bg-[#8A6BFF]/5"
@@ -78,9 +78,9 @@ export function ProcessSection() {
                 className={`flex flex-col md:flex-row items-center gap-8 ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >

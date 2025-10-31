@@ -44,13 +44,13 @@ export function FAQSection() {
   const [openItem, setOpenItem] = useState<string | undefined>(undefined);
   
   return (
-    <section id="faq" ref={ref} className="px-6 py-32 relative">
+    <section id="faq" ref={ref} className="px-6 py-24 relative">
       <div className="max-w-3xl mx-auto">
         <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <motion.div
             className="inline-block mb-4 px-3 py-1 rounded-full border border-[#FF2EF5]/20 bg-[#FF2EF5]/5"
@@ -83,9 +83,9 @@ export function FAQSection() {
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.3 + index * 0.08 }}
+                transition={{ duration: 0.4, delay: 0.2 + index * 0.06, ease: "easeOut" }}
               >
                 <AccordionItem
                   value={`item-${index}`}
