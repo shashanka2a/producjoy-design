@@ -4,28 +4,35 @@ import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef, useState } from "react";
 import { ArrowRight, ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 const projects = [
   {
-    title: "Liftoff.design",
-    description: "Sprint-based design for founders.",
+    title: "Adverzeo",
+    description: "The Art Of Loading Excellence — premium marketing platform design.",
     tags: ["Brand Identity", "Web Design", "UI/UX"],
     gradient: "from-[#FF2EF5] to-[#8A6BFF]",
     year: "2024",
+    url: "https://www.adverzeo.online/",
+    image: "/projects/adverzeo-hero.png", // Add hero screenshot here
   },
   {
-    title: "Rydify App",
-    description: "Clean, ride-sharing interface built in Figma.",
-    tags: ["Mobile App", "Design System", "Prototyping"],
+    title: "Payflow",
+    description: "Seamless global finance with zero hidden fees and instant settlements.",
+    tags: ["Fintech", "Web App", "Design System"],
     gradient: "from-[#8A6BFF] to-[#FF2EF5]",
     year: "2024",
+    url: "https://www.payflow.cash/",
+    image: "/projects/payflow-hero.png", // Add hero screenshot here
   },
   {
-    title: "InOrbyt Rebrand",
-    description: "Web3 ecosystem identity with dynamic logo system.",
-    tags: ["Rebranding", "Logo Design", "Web3"],
+    title: "InOrbyt",
+    description: "Reward your community. No crypto. No complexity. Just connection.",
+    tags: ["Web3", "Platform Design", "Brand Identity"],
     gradient: "from-[#FF2EF5] to-[#8A6BFF]",
     year: "2025",
+    url: "https://inorbyt.club/",
+    image: "/projects/inorbyt-hero.png", // Add hero screenshot here
   },
 ];
 
@@ -63,9 +70,12 @@ export function RecentWorkSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <motion.div
+            <motion.a
               key={project.title}
-              className="group relative rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer"
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer block"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
@@ -87,29 +97,47 @@ export function RecentWorkSection() {
               
               {/* Card content */}
               <div className="relative p-8 h-full flex flex-col">
-                {/* Project preview area with animated gradient */}
-                <div className="mb-6 h-56 rounded-2xl bg-gradient-to-br from-white/5 to-white/0 flex items-center justify-center border border-white/10 overflow-hidden relative group-hover:border-white/20 transition-all duration-500">
-                  <motion.div
-                    className={`w-32 h-32 rounded-full bg-gradient-to-br ${project.gradient} opacity-40`}
-                    animate={{
-                      scale: hoveredIndex === index ? [1, 1.2, 1] : 1,
-                      rotate: hoveredIndex === index ? [0, 180, 360] : 0,
-                    }}
-                    transition={{ duration: 3, repeat: hoveredIndex === index ? Infinity : 0 }}
-                  />
+                {/* Project preview area with hero screenshot */}
+                <div className="mb-6 h-56 rounded-2xl border border-white/10 overflow-hidden relative group-hover:border-white/20 transition-all duration-500 bg-gradient-to-br from-white/5 to-white/0">
+                  {project.image ? (
+                    <>
+                      <Image
+                        src={project.image}
+                        alt={`${project.title} hero screenshot`}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                      {/* Gradient overlay for text readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                    </>
+                  ) : (
+                    /* Fallback animated gradient if image not available */
+                    <motion.div
+                      className={`w-full h-full bg-gradient-to-br ${project.gradient} opacity-20`}
+                      animate={{
+                        scale: hoveredIndex === index ? [1, 1.1, 1] : 1,
+                      }}
+                      transition={{ duration: 3, repeat: hoveredIndex === index ? Infinity : 0 }}
+                    />
+                  )}
                   
                   {/* Year badge */}
-                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
-                    <span className="text-xs text-white/70">{project.year}</span>
+                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 z-10">
+                    <span className="text-xs text-white/90">{project.year}</span>
                   </div>
 
-                  {/* Hover overlay */}
+                  {/* Hover overlay with external link */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-center p-6"
+                    className="absolute inset-0 bg-black/40 flex items-center justify-center z-10"
                     initial={{ opacity: 0 }}
                     animate={hoveredIndex === index ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    <ExternalLink className="w-6 h-6 text-white" />
+                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
+                      <ExternalLink className="w-5 h-5 text-white" />
+                      <span className="text-sm text-white font-medium">View Live</span>
+                    </div>
                   </motion.div>
                 </div>
                 
@@ -144,7 +172,7 @@ export function RecentWorkSection() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
 
