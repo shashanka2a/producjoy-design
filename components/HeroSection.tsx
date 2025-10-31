@@ -1,0 +1,161 @@
+"use client";
+
+import { motion } from "motion/react";
+import { ArrowRight, Zap, Package, Clock } from "lucide-react";
+
+const FloatingOrb = ({ delay = 0, duration = 3 }: { delay?: number; duration?: number }) => (
+  <motion.div
+    className="absolute w-64 h-64 rounded-full bg-gradient-to-br from-[#FF2EF5]/10 to-[#8A6BFF]/10 blur-3xl"
+    animate={{
+      x: [0, 100, 0],
+      y: [0, -100, 0],
+      scale: [1, 1.2, 1],
+    }}
+    transition={{
+      duration,
+      delay,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+  />
+);
+
+export function HeroSection() {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center px-6 pt-24 pb-20 overflow-hidden">
+      {/* Animated background orbs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <FloatingOrb delay={0} duration={8} />
+        <div className="absolute top-1/3 right-1/4">
+          <FloatingOrb delay={2} duration={10} />
+        </div>
+        <div className="absolute bottom-1/4 left-1/3">
+          <FloatingOrb delay={4} duration={12} />
+        </div>
+      </div>
+
+      {/* Main gradient glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-[#FF2EF5]/20 via-[#8A6BFF]/20 to-transparent rounded-full blur-[140px] pointer-events-none" />
+      
+      <div className="relative max-w-6xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.div
+            className="inline-block mb-6 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <span className="text-sm text-white/60">✨ Premium Design Studio</span>
+          </motion.div>
+
+          <h1 className="mb-8 max-w-5xl mx-auto">
+            <motion.span
+              className="block text-white"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              Design world-class
+            </motion.span>
+            <motion.span
+              className="block bg-gradient-to-r from-[#FF2EF5] via-[#C945FF] to-[#8A6BFF] bg-clip-text text-transparent"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              experiences, insanely fast
+            </motion.span>
+          </h1>
+        </motion.div>
+        
+        <motion.p
+          className="text-lg text-white/70 max-w-2xl mx-auto mb-12 leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
+          Premium UI + UX + Brand design crafted for startups that move at lightning speed. 
+          From concept to prototype, we make design happen.
+        </motion.p>
+        
+        <motion.div
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-24"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          <motion.button
+            className="group px-8 py-4 rounded-xl bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] text-white flex items-center gap-2 shadow-[0_0_40px_rgba(255,46,245,0.3)] relative overflow-hidden"
+            whileHover={{ scale: 1.05, boxShadow: "0 0 60px rgba(255,46,245,0.5)" }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="relative z-10">Start Your Design</span>
+            <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
+              initial={{ x: "-100%", skewX: -20 }}
+              whileHover={{ x: "100%" }}
+              transition={{ duration: 0.8 }}
+            />
+          </motion.button>
+
+          <motion.button
+            className="group px-8 py-4 rounded-xl border-2 border-white/20 text-white backdrop-blur-sm bg-white/5 hover:border-white/40 hover:bg-white/10 transition-all duration-300 relative overflow-hidden"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="relative z-10">View Our Work</span>
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-[#FF2EF5]/10 to-[#8A6BFF]/10"
+              initial={{ opacity: 0 }}
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.button>
+        </motion.div>
+        
+        <motion.div
+          className="flex flex-col sm:flex-row items-center justify-center gap-12 flex-wrap"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+        >
+          {[
+            { icon: Clock, value: "2–10 days", label: "Delivery time", color: "#FF2EF5" },
+            { icon: Package, value: "50+ Designs", label: "shipped", color: "#8A6BFF" },
+            { icon: Zap, value: "24/7", label: "Collaboration", color: "#FF2EF5" },
+          ].map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              className="group flex items-center gap-4 cursor-default"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+              whileHover={{ y: -4 }}
+            >
+              <motion.div
+                className="w-14 h-14 rounded-2xl bg-gradient-to-br from-white/5 to-white/0 flex items-center justify-center border border-white/10 group-hover:border-white/20 transition-all duration-300"
+                style={{
+                  boxShadow: `0 0 0 rgba(${stat.color === "#FF2EF5" ? "255,46,245" : "138,107,255"},0.3)`,
+                }}
+                whileHover={{
+                  boxShadow: `0 0 30px rgba(${stat.color === "#FF2EF5" ? "255,46,245" : "138,107,255"},0.4)`,
+                }}
+              >
+                <stat.icon className="w-6 h-6" style={{ color: stat.color }} />
+              </motion.div>
+              <div className="text-left">
+                <div className="text-white">{stat.value}</div>
+                <div className="text-white/50 text-sm">{stat.label}</div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
