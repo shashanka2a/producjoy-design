@@ -55,28 +55,28 @@ body {
 
 @media (min-width: 768px) {
   :root {
-    --text-hero: 4.5rem;
+    --text-hero: 4rem;
     --text-section: 2.75rem;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --text-hero: 5.5rem;
+    --text-hero: 4.5rem;
     --text-section: 3.25rem;
   }
 }
 
 @media (min-width: 1280px) {
   :root {
-    --text-hero: 6.5rem;
+    --text-hero: 5rem;
     --text-section: 3.5rem;
   }
 }
 
 @media (min-width: 1536px) {
   :root {
-    --text-hero: 7rem;
+    --text-hero: 5.5rem;
     --text-section: 3.75rem;
   }
 }
