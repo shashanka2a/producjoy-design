@@ -47,15 +47,6 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <motion.div
-            className="inline-block mb-6 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
-          >
-            <span className="text-sm text-white/60">✨ Premium Design Studio</span>
-          </motion.div>
-
           <h1 className="mb-8 max-w-5xl mx-auto">
             <motion.div
               className="block text-white"
