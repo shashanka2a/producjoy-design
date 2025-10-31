@@ -44,8 +44,8 @@
   --sidebar-ring: oklch(0.708 0 0);
   
   /* Custom typography sizes - Mobile first */
-  --text-hero: 3rem;
-  --text-section: 2rem;
+  --text-hero: 3.375rem; /* +12.5% for clearer hierarchy */
+  --text-section: 2.25rem; /* +12.5% */
   --text-6xl: 3rem;
   --text-5xl: 2.5rem;
   --text-4xl: 2rem;
@@ -212,18 +212,18 @@
 /* Responsive typography for larger screens */
 @media (min-width: 640px) {
   :root {
-    --text-hero: 4rem;
-    --text-section: 2.5rem;
+    --text-hero: 4.375rem;
+    --text-section: 2.75rem;
   }
 }
 
 @media (min-width: 768px) {
   :root {
-    --text-hero: 5.5rem;
-    --text-section: 3rem;
-    --text-6xl: 4.5rem;
-    --text-5xl: 3.5rem;
-    --text-4xl: 3rem;
+    --text-hero: 6rem;
+    --text-section: 3.375rem;
+    --text-6xl: 4.75rem;
+    --text-5xl: 3.75rem;
+    --text-4xl: 3.125rem;
     --text-3xl: 2.25rem;
     --text-2xl: 1.875rem;
     --text-xl: 1.5rem;
@@ -233,22 +233,22 @@
 
 @media (min-width: 1024px) {
   :root {
-    --text-hero: 6.5rem;
-    --text-section: 3.5rem;
+    --text-hero: 7rem;
+    --text-section: 3.875rem;
   }
 }
 
 @media (min-width: 1280px) {
   :root {
-    --text-hero: 7.5rem;
-    --text-section: 4rem;
+    --text-hero: 8.25rem;
+    --text-section: 4.5rem;
   }
 }
 
 @media (min-width: 1536px) {
   :root {
-    --text-hero: 8.5rem;
-    --text-section: 4.25rem;
+    --text-hero: 9.25rem;
+    --text-section: 4.75rem;
   }
 }
 

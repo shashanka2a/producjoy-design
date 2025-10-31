@@ -31,7 +31,7 @@ export function Navbar() {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#FF2EF5] to-[#8A6BFF] shadow-[0_0_20px_rgba(255,46,245,0.3)] group-hover:shadow-[0_0_30px_rgba(255,46,245,0.5)] transition-all duration-300" />
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#FF2EF5] to-[#8A6BFF] shadow-[0_0_16px_rgba(255,46,245,0.18)] group-hover:shadow-[0_0_24px_rgba(255,46,245,0.28)] transition-all duration-300" />
           <span className="text-white font-semibold tracking-tight">ProductJoy</span>
         </motion.div>
         
@@ -51,13 +51,13 @@ export function Navbar() {
         </div>
         
         <motion.button
-          className="px-6 py-2.5 rounded-lg bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] text-white relative overflow-hidden group"
+          className="px-6 py-2.5 rounded-lg bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] text-white relative overflow-hidden group shadow-[0_0_20px_rgba(255,46,245,0.12)] hover:shadow-[0_0_28px_rgba(255,46,245,0.18)] transition-shadow"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           <span className="relative z-10">Start Your Design</span>
           <motion.div
-            className="absolute inset-0 bg-white/20"
+            className="absolute inset-0 bg-white/10"
             initial={{ x: "-100%", skewX: -15 }}
             whileHover={{ x: "100%" }}
             transition={{ duration: 0.6 }}

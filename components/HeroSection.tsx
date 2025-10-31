@@ -5,7 +5,7 @@ import { ArrowRight, Zap, Package, Clock } from "lucide-react";
 
 const FloatingOrb = ({ delay = 0, duration = 3 }: { delay?: number; duration?: number }) => (
   <motion.div
-    className="absolute w-64 h-64 rounded-full bg-gradient-to-br from-[#FF2EF5]/10 to-[#8A6BFF]/10 blur-3xl"
+    className="absolute w-56 h-56 rounded-full bg-gradient-to-br from-[#FF2EF5]/10 to-[#8A6BFF]/10 blur-2xl"
     animate={{
       x: [0, 100, 0],
       y: [0, -100, 0],
@@ -34,8 +34,8 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Main gradient glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-[#FF2EF5]/20 via-[#8A6BFF]/20 to-transparent rounded-full blur-[140px] pointer-events-none" />
+      {/* Main gradient glow (subtle) */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-gradient-to-br from-[#FF2EF5]/10 via-[#8A6BFF]/10 to-transparent rounded-full blur-[100px] pointer-events-none" />
       
       <div className="relative max-w-6xl mx-auto text-center">
         <motion.div
@@ -72,8 +72,8 @@ export function HeroSection() {
           </h1>
         </motion.div>
         
-        <motion.p
-          className="text-lg text-white/70 max-w-2xl mx-auto mb-12 leading-relaxed"
+          <motion.p
+          className="text-base sm:text-lg text-white/75 max-w-2xl mx-auto mb-12 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
@@ -83,20 +83,20 @@ export function HeroSection() {
         </motion.p>
         
         <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-24"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20 sm:mb-24"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <motion.button
-            className="group px-8 py-4 rounded-xl bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] text-white flex items-center gap-2 shadow-[0_0_40px_rgba(255,46,245,0.3)] relative overflow-hidden"
-            whileHover={{ scale: 1.05, boxShadow: "0 0 60px rgba(255,46,245,0.5)" }}
+            className="group px-8 py-4 rounded-xl bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] text-white flex items-center gap-2 shadow-[0_0_28px_rgba(255,46,245,0.18)] relative overflow-hidden"
+            whileHover={{ scale: 1.04, boxShadow: "0 0 40px rgba(255,46,245,0.3)" }}
             whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10">Start Your Design</span>
             <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
+              className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"
               initial={{ x: "-100%", skewX: -20 }}
               whileHover={{ x: "100%" }}
               transition={{ duration: 0.8 }}
@@ -104,13 +104,13 @@ export function HeroSection() {
           </motion.button>
 
           <motion.button
-            className="group px-8 py-4 rounded-xl border-2 border-white/20 text-white backdrop-blur-sm bg-white/5 hover:border-white/40 hover:bg-white/10 transition-all duration-300 relative overflow-hidden"
+            className="group px-8 py-4 rounded-xl border-2 border-white/15 text-white backdrop-blur-sm bg-white/5 hover:border-white/30 hover:bg-white/10 transition-all duration-300 relative overflow-hidden"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10">View Our Work</span>
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-[#FF2EF5]/10 to-[#8A6BFF]/10"
+              className="absolute inset-0 bg-gradient-to-r from-[#FF2EF5]/5 to-[#8A6BFF]/5"
               initial={{ opacity: 0 }}
               whileHover={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
