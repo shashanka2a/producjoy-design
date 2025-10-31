@@ -66,12 +66,12 @@ export function ServicesSection() {
           transition={{ duration: 0.8 }}
         >
           <motion.div
-            className="inline-block mb-4 px-3 py-1 rounded-full border border-white/15 bg-white/5"
+            className="inline-block mb-4 px-3 py-1 rounded-full border border-[#FF2EF5]/20 bg-[#FF2EF5]/5"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-xs uppercase tracking-wider text-white/80">Our Services</span>
+            <span className="text-xs uppercase tracking-wider text-[#FF2EF5]">Our Services</span>
           </motion.div>
           <h2 className="mb-6 text-white max-w-3xl">
             Everything you need to design remarkable products
@@ -85,18 +85,28 @@ export function ServicesSection() {
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              className="group relative p-8 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden cursor-pointer"
+              className="group relative p-8 rounded-3xl bg-gradient-to-br from-white/[0.07] to-white/[0.02] border border-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden cursor-pointer"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
             >
-              {/* Gradient overlays removed */}
+              {/* Animated gradient background */}
+              <motion.div
+                className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                initial={false}
+              />
+              
+              {/* Border glow on hover */}
+              <motion.div
+                className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r ${service.borderGradient} blur-xl -z-10`}
+                initial={false}
+              />
               
               <div className="relative">
                 <div className="flex items-start justify-between mb-6">
                   <motion.div
-                    className={`w-16 h-16 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center`}
+                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.borderGradient} flex items-center justify-center shadow-lg`}
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6 }}
                   >
@@ -107,10 +117,10 @@ export function ServicesSection() {
                   </span>
                 </div>
                 
-                <h3 className="mb-3 text-white">
+                <h3 className="mb-3 text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/80 group-hover:bg-clip-text transition-all duration-300">
                   {service.title}
                 </h3>
-                <p className="text-white/60 leading-relaxed">
+                <p className="text-white/60 group-hover:text-white/80 transition-colors duration-300 leading-relaxed">
                   {service.description}
                 </p>
 

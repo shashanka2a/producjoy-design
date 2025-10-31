@@ -35,7 +35,7 @@ export function HeroSection() {
               Design world-class
             </motion.span>
             <motion.span
-              className="block text-white"
+              className="block bg-gradient-to-r from-[#FF2EF5] via-[#C945FF] to-[#8A6BFF] bg-clip-text text-transparent"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -62,22 +62,32 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <motion.button
-            className="group px-8 py-4 rounded-xl bg-white text-black flex items-center gap-2 shadow-none border border-white/10 hover:border-white/20 transition-colors relative overflow-hidden"
-            whileHover={{ scale: 1.04 }}
+            className="group px-8 py-4 rounded-xl bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] text-white flex items-center gap-2 shadow-[0_0_28px_rgba(255,46,245,0.18)] relative overflow-hidden"
+            whileHover={{ scale: 1.04, boxShadow: "0 0 40px rgba(255,46,245,0.3)" }}
             whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10">Start Your Design</span>
             <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
-            
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"
+              initial={{ x: "-100%", skewX: -20 }}
+              whileHover={{ x: "100%" }}
+              transition={{ duration: 0.8 }}
+            />
           </motion.button>
 
           <motion.button
-            className="group px-8 py-4 rounded-xl border-2 border-white/15 text-white bg-transparent hover:border-white/30 hover:bg-white/5 transition-all duration-300 relative overflow-hidden"
+            className="group px-8 py-4 rounded-xl border-2 border-white/15 text-white backdrop-blur-sm bg-white/5 hover:border-white/30 hover:bg-white/10 transition-all duration-300 relative overflow-hidden"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10">View Our Work</span>
-            
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-[#FF2EF5]/5 to-[#8A6BFF]/5"
+              initial={{ opacity: 0 }}
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            />
           </motion.button>
         </motion.div>
         

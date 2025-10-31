@@ -46,12 +46,12 @@ export function RecentWorkSection() {
           transition={{ duration: 0.8 }}
         >
           <motion.div
-            className="inline-block mb-4 px-3 py-1 rounded-full border border-white/15 bg-white/5"
+            className="inline-block mb-4 px-3 py-1 rounded-full border border-[#FF2EF5]/20 bg-[#FF2EF5]/5"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-xs uppercase tracking-wider text-white/80">Featured Work</span>
+            <span className="text-xs uppercase tracking-wider text-[#FF2EF5]">Featured Work</span>
           </motion.div>
           <h2 className="mb-6 text-white max-w-3xl">
             Startups we've helped ship beautiful products
@@ -73,13 +73,30 @@ export function RecentWorkSection() {
               onMouseLeave={() => setHoveredIndex(null)}
               whileHover={{ y: -12 }}
             >
-              {/* Gradient overlays removed */}
+              {/* Gradient background */}
+              <motion.div
+                className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10 group-hover:opacity-20 transition-opacity duration-500`}
+              />
+
+              {/* Border glow */}
+              <motion.div
+                className={`absolute -inset-[1px] bg-gradient-to-br ${project.gradient} rounded-3xl opacity-0 blur-xl -z-10`}
+                animate={hoveredIndex === index ? { opacity: 0.5 } : { opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              />
               
               {/* Card content */}
               <div className="relative p-8 h-full flex flex-col">
                 {/* Project preview area with animated gradient */}
-                <div className="mb-6 h-56 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 overflow-hidden relative group-hover:border-white/20 transition-all duration-500">
-                  
+                <div className="mb-6 h-56 rounded-2xl bg-gradient-to-br from-white/5 to-white/0 flex items-center justify-center border border-white/10 overflow-hidden relative group-hover:border-white/20 transition-all duration-500">
+                  <motion.div
+                    className={`w-32 h-32 rounded-full bg-gradient-to-br ${project.gradient} opacity-40`}
+                    animate={{
+                      scale: hoveredIndex === index ? [1, 1.2, 1] : 1,
+                      rotate: hoveredIndex === index ? [0, 180, 360] : 0,
+                    }}
+                    transition={{ duration: 3, repeat: hoveredIndex === index ? Infinity : 0 }}
+                  />
                   
                   {/* Year badge */}
                   <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
@@ -88,7 +105,7 @@ export function RecentWorkSection() {
 
                   {/* Hover overlay */}
                   <motion.div
-                    className="absolute inset-0 bg-black/60 flex items-end justify-center p-6"
+                    className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-center p-6"
                     initial={{ opacity: 0 }}
                     animate={hoveredIndex === index ? { opacity: 1 } : { opacity: 0 }}
                   >
@@ -97,7 +114,7 @@ export function RecentWorkSection() {
                 </div>
                 
                 <div className="flex items-start justify-between mb-2">
-                  <h3 className="text-white">
+                  <h3 className="text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/80 group-hover:bg-clip-text transition-all duration-300">
                     {project.title}
                   </h3>
                   <motion.div
