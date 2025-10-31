@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,14 +27,23 @@ export function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <motion.div
+        <motion.a
+          href="/"
           className="flex items-center gap-2 cursor-pointer group"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#FF2EF5] to-[#8A6BFF] shadow-[0_0_16px_rgba(255,46,245,0.18)] group-hover:shadow-[0_0_24px_rgba(255,46,245,0.28)] transition-all duration-300" />
+          <div className="relative w-8 h-8 rounded-lg overflow-hidden group-hover:shadow-[0_0_24px_rgba(255,46,245,0.28)] transition-all duration-300">
+            <Image
+              src="/logo.png"
+              alt="ProductJoy"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
           <span className="text-white font-semibold tracking-tight">ProductJoy</span>
-        </motion.div>
+        </motion.a>
         
         <div className="hidden md:flex items-center gap-8">
           {["Work", "Process", "Pricing", "FAQ"].map((item) => (

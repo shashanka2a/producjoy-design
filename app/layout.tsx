@@ -19,7 +19,7 @@ export const metadata: Metadata = {
       "Premium UI, UX, and Brand design for fast-moving startups.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/logo.png",
         width: 1200,
         height: 630,
         alt: "ProductJoy Design Studio",
@@ -27,7 +27,9 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
 };
 

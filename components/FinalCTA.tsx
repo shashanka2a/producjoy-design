@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { ArrowRight, Twitter, Linkedin, Github, Mail } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 export function FinalCTA() {
   const [email, setEmail] = useState("");
@@ -156,13 +157,21 @@ export function FinalCTA() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
             {/* Brand */}
             <div>
-              <motion.div
+              <motion.a
+                href="/"
                 className="flex items-center gap-2 mb-4 cursor-pointer group"
                 whileHover={{ scale: 1.02 }}
               >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FF2EF5] to-[#8A6BFF] shadow-[0_0_20px_rgba(255,46,245,0.3)] group-hover:shadow-[0_0_30px_rgba(255,46,245,0.5)] transition-all duration-300" />
+                <div className="relative w-10 h-10 rounded-xl overflow-hidden group-hover:shadow-[0_0_30px_rgba(255,46,245,0.5)] transition-all duration-300">
+                  <Image
+                    src="/logo.png"
+                    alt="ProductJoy"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
                 <span className="text-white font-semibold text-lg">ProductJoy</span>
-              </motion.div>
+              </motion.a>
               <p className="text-white/50 text-sm leading-relaxed">
                 Premium design studio crafting world-class experiences for startups that move fast.
               </p>
