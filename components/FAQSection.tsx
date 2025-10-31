@@ -128,36 +128,6 @@ export function FAQSection() {
             ))}
           </Accordion>
         </motion.div>
-
-        {/* Still have questions CTA */}
-        <motion.div
-          className="mt-16 text-center p-8 rounded-2xl bg-gradient-to-br from-white/[0.07] to-white/[0.02] border border-white/10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          whileHover={{ y: -4 }}
-        >
-          <h4 className="text-white mb-2">Still have questions?</h4>
-          <p className="text-white/60 mb-6">
-            We're here to help. Schedule a call with our team.
-          </p>
-          <motion.a
-            href="https://calendly.com/5ha5hank/availability"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] text-white shadow-[0_0_28px_rgba(255,46,245,0.18)] relative overflow-hidden group"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="relative z-10">Book a Call</span>
-            <motion.div
-              className="absolute inset-0 bg-white/10"
-              initial={{ x: "-100%", skewX: -20 }}
-              whileHover={{ x: "100%" }}
-              transition={{ duration: 0.8 }}
-            />
-          </motion.a>
-        </motion.div>
       </div>
     </section>
   );
