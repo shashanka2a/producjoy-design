@@ -55,7 +55,7 @@ export function ProcessSection() {
             <span className="text-xs uppercase tracking-wider text-[#8A6BFF]">Our Process</span>
           </motion.div>
           <h2 className="mb-6 text-white max-w-3xl">
-            From <span className="bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] bg-clip-text text-transparent">idea to execution</span> in days
+            From idea to execution in days
           </h2>
           <p className="text-white/60 max-w-2xl leading-relaxed" style={{ fontSize: '1.125rem' }}>
             A streamlined workflow designed for speed without compromising quality—because great design shouldn't take months.
@@ -65,7 +65,7 @@ export function ProcessSection() {
         <div className="relative">
           {/* Animated vertical connecting line */}
           <motion.div
-            className="absolute left-1/2 top-0 w-[2px] bg-gradient-to-b from-[#FF2EF5] via-[#8A6BFF] to-[#FF2EF5] hidden md:block"
+            className="absolute left-1/2 top-0 w-[2px] bg-white/10 hidden md:block"
             initial={{ height: 0 }}
             animate={isInView ? { height: "100%" } : {}}
             transition={{ duration: 1.5, ease: "easeOut" }}
@@ -89,38 +89,26 @@ export function ProcessSection() {
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="p-8 rounded-3xl bg-gradient-to-br from-white/[0.07] to-white/[0.02] border border-white/10 hover:border-white/20 transition-all duration-500 group relative overflow-hidden">
-                    {/* Hover gradient */}
-                    <motion.div
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                      style={{
-                        background: `linear-gradient(135deg, ${step.color}10, ${step.color}05)`,
-                      }}
-                    />
+                  <div className="p-8 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-white/20 transition-all duration-500 group relative overflow-hidden">
+                    {/* Gradient hover removed for cleaner look */}
 
                     <div className="relative">
                       <div className={`flex items-center gap-4 mb-4 ${index % 2 === 0 ? "md:flex-row-reverse md:justify-end" : ""}`}>
                         <motion.div
                           className="w-14 h-14 rounded-2xl flex items-center justify-center relative"
                           style={{
-                            background: `linear-gradient(135deg, ${step.color}30, ${step.color}10)`,
-                            border: `1px solid ${step.color}40`,
+                            background: `rgba(255,255,255,0.06)`,
+                            border: `1px solid rgba(255,255,255,0.12)`,
                           }}
                           whileHover={{ rotate: 360 }}
                           transition={{ duration: 0.6 }}
                         >
                           <step.icon className="w-7 h-7" style={{ color: step.color }} />
-                          <motion.div
-                            className="absolute inset-0 rounded-2xl"
-                            style={{ boxShadow: `0 0 0 rgba(${step.color === "#FF2EF5" ? "255,46,245" : "138,107,255"},0.3)` }}
-                            animate={hoveredIndex === index ? {
-                              boxShadow: `0 0 30px rgba(${step.color === "#FF2EF5" ? "255,46,245" : "138,107,255"},0.5)`,
-                            } : {}}
-                          />
+                          
                         </motion.div>
                         <div>
                           <h3 className="text-white mb-1">{step.title}</h3>
-                          <p className="text-sm" style={{ color: step.color }}>{step.duration}</p>
+                          <p className="text-sm text-white/60">{step.duration}</p>
                         </div>
                       </div>
                       <p className="text-white/70 mb-6 leading-relaxed">{step.description}</p>

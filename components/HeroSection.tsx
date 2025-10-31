@@ -3,39 +3,12 @@
 import { motion } from "motion/react";
 import { ArrowRight, Zap, Package, Clock } from "lucide-react";
 
-const FloatingOrb = ({ delay = 0, duration = 3 }: { delay?: number; duration?: number }) => (
-  <motion.div
-    className="absolute w-56 h-56 rounded-full bg-gradient-to-br from-[#FF2EF5]/10 to-[#8A6BFF]/10 blur-2xl"
-    animate={{
-      x: [0, 100, 0],
-      y: [0, -100, 0],
-      scale: [1, 1.2, 1],
-    }}
-    transition={{
-      duration,
-      delay,
-      repeat: Infinity,
-      ease: "easeInOut",
-    }}
-  />
-);
+// Background ornaments removed for a cleaner hero
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 pt-24 pb-20 overflow-hidden">
-      {/* Animated background orbs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <FloatingOrb delay={0} duration={8} />
-        <div className="absolute top-1/3 right-1/4">
-          <FloatingOrb delay={2} duration={10} />
-        </div>
-        <div className="absolute bottom-1/4 left-1/3">
-          <FloatingOrb delay={4} duration={12} />
-        </div>
-      </div>
-
-      {/* Main gradient glow (subtle) */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-gradient-to-br from-[#FF2EF5]/10 via-[#8A6BFF]/10 to-transparent rounded-full blur-[100px] pointer-events-none" />
+      {/* Minimal background, no gradients for a pitch-black look */}
       
       <div className="relative max-w-6xl mx-auto text-center">
         <motion.div
@@ -62,7 +35,7 @@ export function HeroSection() {
               Design world-class
             </motion.span>
             <motion.span
-              className="block bg-gradient-to-r from-[#FF2EF5] via-[#C945FF] to-[#8A6BFF] bg-clip-text text-transparent"
+              className="block text-white"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -89,32 +62,22 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <motion.button
-            className="group px-8 py-4 rounded-xl bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] text-white flex items-center gap-2 shadow-[0_0_28px_rgba(255,46,245,0.18)] relative overflow-hidden"
-            whileHover={{ scale: 1.04, boxShadow: "0 0 40px rgba(255,46,245,0.3)" }}
+            className="group px-8 py-4 rounded-xl bg-white text-black flex items-center gap-2 shadow-none border border-white/10 hover:border-white/20 transition-colors relative overflow-hidden"
+            whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10">Start Your Design</span>
             <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"
-              initial={{ x: "-100%", skewX: -20 }}
-              whileHover={{ x: "100%" }}
-              transition={{ duration: 0.8 }}
-            />
+            
           </motion.button>
 
           <motion.button
-            className="group px-8 py-4 rounded-xl border-2 border-white/15 text-white backdrop-blur-sm bg-white/5 hover:border-white/30 hover:bg-white/10 transition-all duration-300 relative overflow-hidden"
+            className="group px-8 py-4 rounded-xl border-2 border-white/15 text-white bg-transparent hover:border-white/30 hover:bg-white/5 transition-all duration-300 relative overflow-hidden"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10">View Our Work</span>
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-[#FF2EF5]/5 to-[#8A6BFF]/5"
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            />
+            
           </motion.button>
         </motion.div>
         
@@ -138,7 +101,7 @@ export function HeroSection() {
               whileHover={{ y: -4 }}
             >
               <motion.div
-                className="w-14 h-14 rounded-2xl bg-gradient-to-br from-white/5 to-white/0 flex items-center justify-center border border-white/10 group-hover:border-white/20 transition-all duration-300"
+                className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-white/20 transition-all duration-300"
                 style={{
                   boxShadow: `0 0 0 rgba(${stat.color === "#FF2EF5" ? "255,46,245" : "138,107,255"},0.3)`,
                 }}
