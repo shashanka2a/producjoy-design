@@ -60,7 +60,10 @@ export function Navbar() {
           ))}
         </div>
         
-        <motion.button
+        <motion.a
+          href="https://calendly.com/5ha5hank/availability"
+          target="_blank"
+          rel="noopener noreferrer"
           className="px-6 py-2.5 rounded-lg bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] text-white relative overflow-hidden group shadow-[0_0_20px_rgba(255,46,245,0.12)] hover:shadow-[0_0_28px_rgba(255,46,245,0.18)] transition-shadow"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -72,7 +75,7 @@ export function Navbar() {
             whileHover={{ x: "100%" }}
             transition={{ duration: 0.6 }}
           />
-        </motion.button>
+        </motion.a>
       </div>
     </motion.nav>
   );

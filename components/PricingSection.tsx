@@ -173,10 +173,13 @@ export function PricingSection() {
                 <p className="text-white/60 mb-8 leading-relaxed">{plan.description}</p>
                 
                 {/* CTA Button */}
-                <motion.button
-                  className={`w-full py-4 rounded-xl mb-8 transition-all duration-300 relative overflow-hidden group ${
+                <motion.a
+                  href="https://calendly.com/5ha5hank/availability"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full py-4 rounded-xl mb-8 transition-all duration-300 relative overflow-hidden group block ${
                     plan.popular
-                      ? "bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] text-white shadow-[0_0_40px_rgba(255,46,245,0.3)]"
+                      ? "bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] text-white shadow-[0_0_28px_rgba(255,46,245,0.18)]"
                       : "border-2 border-white/20 text-white hover:bg-white/5"
                   }`}
                   whileHover={{ scale: 1.02 }}
@@ -188,13 +191,13 @@ export function PricingSection() {
                   </span>
                   {plan.popular && (
                     <motion.div
-                      className="absolute inset-0 bg-white/20"
+                      className="absolute inset-0 bg-white/10"
                       initial={{ x: "-100%", skewX: -20 }}
                       whileHover={{ x: "100%" }}
                       transition={{ duration: 0.8 }}
                     />
                   )}
-                </motion.button>
+                </motion.a>
                 
                 {/* Features list */}
                 <div className="space-y-3">

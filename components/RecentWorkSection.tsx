@@ -14,7 +14,7 @@ const projects = [
     gradient: "from-[#FF2EF5] to-[#8A6BFF]",
     year: "2024",
     url: "https://www.adverzeo.online/",
-    image: "/projects/adverzeo-hero.png", // Add hero screenshot here
+    image: "/projects/adverzeo.png",
   },
   {
     title: "Payflow",
@@ -23,7 +23,7 @@ const projects = [
     gradient: "from-[#8A6BFF] to-[#FF2EF5]",
     year: "2024",
     url: "https://www.payflow.cash/",
-    image: "/projects/payflow-hero.png", // Add hero screenshot here
+    image: "/projects/payflow.png",
   },
   {
     title: "InOrbyt",
@@ -32,7 +32,7 @@ const projects = [
     gradient: "from-[#FF2EF5] to-[#8A6BFF]",
     year: "2025",
     url: "https://inorbyt.club/",
-    image: "/projects/inorbyt-hero.png", // Add hero screenshot here
+    image: "/projects/inorbyt.png",
   },
 ];
 

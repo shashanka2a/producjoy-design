@@ -141,19 +141,22 @@ export function FAQSection() {
           <p className="text-white/60 mb-6">
             We're here to help. Schedule a call with our team.
           </p>
-          <motion.button
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] text-white shadow-[0_0_30px_rgba(255,46,245,0.3)] relative overflow-hidden group"
+          <motion.a
+            href="https://calendly.com/5ha5hank/availability"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] text-white shadow-[0_0_28px_rgba(255,46,245,0.18)] relative overflow-hidden group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10">Book a Call</span>
             <motion.div
-              className="absolute inset-0 bg-white/20"
+              className="absolute inset-0 bg-white/10"
               initial={{ x: "-100%", skewX: -20 }}
               whileHover={{ x: "100%" }}
               transition={{ duration: 0.8 }}
             />
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
     </section>

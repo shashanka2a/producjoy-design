@@ -85,7 +85,7 @@ export function ProcessSection() {
                 onMouseLeave={() => setHoveredIndex(null)}
               >
                 <motion.div
-                  className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}
+                  className="flex-1 text-left"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -99,7 +99,7 @@ export function ProcessSection() {
                     />
 
                     <div className="relative">
-                      <div className={`flex items-center gap-4 mb-4 ${index % 2 === 0 ? "md:flex-row-reverse md:justify-end" : ""}`}>
+                      <div className="flex items-center gap-4 mb-4">
                         <motion.div
                           className="w-14 h-14 rounded-2xl flex items-center justify-center relative"
                           style={{
@@ -118,12 +118,12 @@ export function ProcessSection() {
                             } : {}}
                           />
                         </motion.div>
-                        <div>
+                        <div className="text-left">
                           <h3 className="text-white mb-1">{step.title}</h3>
                           <p className="text-sm" style={{ color: step.color }}>{step.duration}</p>
                         </div>
                       </div>
-                      <p className="text-white/70 mb-6 leading-relaxed">{step.description}</p>
+                      <p className="text-white/70 mb-6 leading-relaxed text-left">{step.description}</p>
 
                       {/* Details list */}
                       <motion.div
@@ -135,12 +135,12 @@ export function ProcessSection() {
                         {step.details.map((detail, i) => (
                           <motion.div
                             key={detail}
-                            className={`flex items-center gap-2 ${index % 2 === 0 ? "md:flex-row-reverse md:justify-end" : ""}`}
-                            initial={{ opacity: 0, x: index % 2 === 0 ? 10 : -10 }}
+                            className="flex items-center gap-2 text-left"
+                            initial={{ opacity: 0, x: -10 }}
                             animate={hoveredIndex === index ? { opacity: 1, x: 0 } : {}}
                             transition={{ duration: 0.3, delay: i * 0.05 }}
                           >
-                            <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: step.color }} />
+                            <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: step.color }} />
                             <span className="text-sm text-white/50">{detail}</span>
                           </motion.div>
                         ))}

@@ -9,59 +9,8 @@ export function FinalCTA() {
   const [email, setEmail] = useState("");
 
   return (
-    <section className="relative px-6 py-24 overflow-hidden">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0">
-        <motion.div
-          className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-[#0D0D0D] via-[#8A6BFF]/10 to-transparent"
-          animate={{
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#0D0D0D] via-[#FF2EF5]/10 to-transparent"
-          animate={{
-            opacity: [0.5, 0.3, 0.5],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 4,
-          }}
-        />
-      </div>
-
-      {/* Floating orbs */}
-      <motion.div
-        className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-[#FF2EF5]/20 to-transparent rounded-full blur-3xl"
-        animate={{
-          x: [0, 50, 0],
-          y: [0, -50, 0],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-      <motion.div
-        className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-br from-[#8A6BFF]/20 to-transparent rounded-full blur-3xl"
-        animate={{
-          x: [0, -50, 0],
-          y: [0, 50, 0],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
+    <section className="relative px-6 py-24 overflow-hidden bg-black">
+      {/* Pitch black background - no gradients */}
       
       <div className="relative max-w-5xl mx-auto text-center">
         <motion.div
@@ -92,34 +41,40 @@ export function FinalCTA() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
-            <motion.button
-              className="group px-10 py-5 rounded-xl bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] text-white flex items-center gap-3 shadow-[0_0_50px_rgba(255,46,245,0.4)] relative overflow-hidden"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 70px rgba(255,46,245,0.6)" }}
+            <motion.a
+              href="https://calendly.com/5ha5hank/availability"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group px-10 py-5 rounded-xl bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] text-white flex items-center gap-3 shadow-[0_0_28px_rgba(255,46,245,0.18)] relative overflow-hidden"
+              whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(255,46,245,0.3)" }}
               whileTap={{ scale: 0.95 }}
             >
               <span className="relative z-10 font-semibold">Start Your Design</span>
               <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
+                className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"
                 initial={{ x: "-100%", skewX: -20 }}
                 whileHover={{ x: "100%" }}
                 transition={{ duration: 0.8 }}
               />
-            </motion.button>
+            </motion.a>
 
-            <motion.button
-              className="group px-10 py-5 rounded-xl border-2 border-white/20 text-white backdrop-blur-sm bg-white/5 hover:border-white/40 hover:bg-white/10 transition-all duration-300 relative overflow-hidden"
+            <motion.a
+              href="https://calendly.com/5ha5hank/availability"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group px-10 py-5 rounded-xl border-2 border-white/15 text-white bg-white/5 hover:border-white/30 hover:bg-white/10 transition-all duration-300 relative overflow-hidden"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10 font-semibold">Book a Call</span>
+              <span className="relative z-10 font-semibold">Schedule a Call</span>
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-[#FF2EF5]/10 to-[#8A6BFF]/10"
+                className="absolute inset-0 bg-gradient-to-r from-[#FF2EF5]/5 to-[#8A6BFF]/5"
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               />
-            </motion.button>
+            </motion.a>
           </div>
 
           {/* Newsletter signup */}

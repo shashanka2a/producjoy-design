@@ -61,7 +61,10 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <motion.button
+          <motion.a
+            href="https://calendly.com/5ha5hank/availability"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group px-8 py-4 rounded-xl bg-gradient-to-r from-[#FF2EF5] to-[#8A6BFF] text-white flex items-center gap-2 shadow-[0_0_28px_rgba(255,46,245,0.18)] relative overflow-hidden"
             whileHover={{ scale: 1.04, boxShadow: "0 0 40px rgba(255,46,245,0.3)" }}
             whileTap={{ scale: 0.95 }}
@@ -74,9 +77,10 @@ export function HeroSection() {
               whileHover={{ x: "100%" }}
               transition={{ duration: 0.8 }}
             />
-          </motion.button>
+          </motion.a>
 
-          <motion.button
+          <motion.a
+            href="#work"
             className="group px-8 py-4 rounded-xl border-2 border-white/15 text-white backdrop-blur-sm bg-white/5 hover:border-white/30 hover:bg-white/10 transition-all duration-300 relative overflow-hidden"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -88,7 +92,7 @@ export function HeroSection() {
               whileHover={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
             />
-          </motion.button>
+          </motion.a>
         </motion.div>
         
         <motion.div

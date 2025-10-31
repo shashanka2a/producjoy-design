@@ -93,15 +93,15 @@ export function ServicesSection() {
               transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
               whileHover={{ y: -6, transition: { duration: 0.3, ease: "easeOut" } }}
             >
-              {/* Animated gradient background */}
+              {/* Animated gradient background - reduced opacity */}
               <motion.div
-                className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}
                 initial={false}
               />
               
-              {/* Border glow on hover */}
+              {/* Border glow on hover - reduced opacity */}
               <motion.div
-                className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r ${service.borderGradient} blur-xl -z-10`}
+                className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 bg-gradient-to-r ${service.borderGradient} blur-xl -z-10`}
                 initial={false}
               />
               
