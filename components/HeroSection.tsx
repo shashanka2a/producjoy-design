@@ -4,30 +4,62 @@ import { motion } from "motion/react";
 import { ArrowRight, Zap, Package, Clock } from "lucide-react";
 import { useState, useEffect } from "react";
 
-// Typing animation component
-function TypingText({ text, delay = 0, className = "" }: { text: string; delay?: number; className?: string }) {
+// Typing animation component with gradient split
+function TypingTextWithGradient({ 
+  fullText, 
+  splitAt, 
+  delay = 0 
+}: { 
+  fullText: string; 
+  splitAt: number; 
+  delay?: number;
+}) {
   const [displayedText, setDisplayedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      if (currentIndex < text.length) {
-        setDisplayedText((prev) => prev + text[currentIndex]);
+      if (currentIndex < fullText.length) {
+        setDisplayedText((prev) => prev + fullText[currentIndex]);
         setCurrentIndex((prev) => prev + 1);
       }
-    }, delay + (currentIndex * 25)); // 25ms per character for faster typing
+    }, delay + (currentIndex * 12)); // 12ms per character - 2x faster
 
     return () => clearTimeout(timeout);
-  }, [currentIndex, text, delay]);
+  }, [currentIndex, fullText, delay]);
+
+  const firstPart = displayedText.substring(0, splitAt);
+  const secondPart = displayedText.substring(splitAt);
 
   return (
-    <span className={className}>
-      {displayedText}
-      {currentIndex < text.length && (
+    <span>
+      <span className="text-white">{firstPart}</span>
+      {secondPart && (
+        <span
+          style={{
+            background: "linear-gradient(to right, #FF2EF5, #C945FF, #8A6BFF)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}
+        >
+          {secondPart}
+        </span>
+      )}
+      {currentIndex < fullText.length && (
         <motion.span
           animate={{ opacity: [1, 0] }}
           transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
-          className="inline-block w-0.5 h-[0.9em] bg-current ml-1 align-middle"
+          className={`inline-block w-0.5 h-[0.9em] ml-1 align-middle ${
+            currentIndex >= splitAt ? "" : "bg-white"
+          }`}
+          style={
+            currentIndex >= splitAt
+              ? {
+                  background: "linear-gradient(to right, #FF2EF5, #C945FF, #8A6BFF)",
+                }
+              : {}
+          }
         />
       )}
     </span>
@@ -49,24 +81,17 @@ export function HeroSection() {
         >
           <h1 className="mb-8 max-w-5xl mx-auto">
             <motion.div
-              className="block text-white"
+              className="block"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <TypingText text="Design world-class" delay={300} />
+              <TypingTextWithGradient 
+                fullText="Design world-class experiences, insanely fast"
+                splitAt={19}
+                delay={300}
+              />
             </motion.div>
-            <div
-              className="block"
-              style={{
-                background: "linear-gradient(to right, #FF2EF5, #C945FF, #8A6BFF)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              <TypingText text="experiences, insanely fast" delay={750} />
-            </div>
           </h1>
         </motion.div>
         
